@@ -1,6 +1,6 @@
 # 腾讯青云｜AI Infra 学习进度仪表盘
 
-> 最后更新：2026-08-14  
+> 最后更新：2026-08-17  
 > 目标：一年左右形成 C++ / Linux / PyTorch / Transformer / CUDA / LLM Inference 的 AI Infra 工程能力。
 
 ## 状态图例
@@ -14,11 +14,11 @@
 | 维度 | 当前状态 |
 | --- | --- |
 | 当前阶段 | 阶段 1：C++ 基础与数据结构算法入门 |
-| 当前专题 | `unordered_map`、哈希查找、时间/空间复杂度 |
-| 最近产出 | Two Sum 优化、First Unique Index |
-| 当前可独立完成 | 使用 `vector` 和 `unordered_map` 完成基础数组题 |
-| 正在巩固 | `const` 引用、`size_type`、迭代器重构、复杂度识别 |
-| 下一节课 | `const std::vector<int>&` 与索引类型 |
+| 当前专题 | C++ 类型安全、容器接口与基础算法 |
+| 最近产出 | Two Sum 优化、First Unique Index 类型安全重构 |
+| 当前可独立完成 | 使用 `vector` 和 `unordered_map` 完成基础数组题，并处理只读参数与无解标记 |
+| 正在巩固 | 类型别名、迭代器重构、复杂度识别与边界测试 |
+| 下一节课 | 类型别名、边界测试与简洁写法 |
 | 下一阶段 | C++ 类、对象、封装与工程工具 |
 
 ## 最近学习证据
@@ -28,6 +28,8 @@
 - [Two Sum 复盘](exercises/2026-08-14-two-sum-hashmap/notes.md)
 - [First Unique 代码](exercises/2026-08-14-first-unique/submission.cpp)
 - [First Unique 复盘](exercises/2026-08-14-first-unique/notes.md)
+- [2026-08-17 日总结](daily/2026-08-17-cpp-const-size-type.md)
+- [每日学习计划](study-plan.md)
 
 ---
 
@@ -40,8 +42,8 @@
 | ✅ | 变量、基本类型、地址、指针、解引用 | 能解释变量、地址和指针的关系 |
 | ✅ | 数组下标与指针偏移 | 能判断下标范围并理解指针移动 |
 | ✅ | 引用与引用传参 | 能解释引用为什么会修改原对象 |
-| 🟡 | `const` 与 `const&` | 能解释只读、避免复制和参数传递 |
-| 🟡 | `int`、`size_type`、`std::size_t` | 能解释 signed/unsigned 警告 |
+| ✅ | `const` 与 `const&` | 能解释只读、避免复制和参数传递 |
+| ✅ | `int`、`size_type`、`std::size_t` | 能解释 signed/unsigned 警告 |
 | ⬜ | 作用域、生命周期与初始化 | 能判断对象何时创建、销毁和失效 |
 | ⬜ | 指针的 `const`、`const` 指针 | 能区分“指向的内容不可改”和“指针本身不可改” |
 | ⬜ | 函数声明、定义、参数与返回值 | 能拆分头文件式声明和实现 |
@@ -199,11 +201,11 @@
 
 ## 下一节课重点
 
-**`const std::vector<int>&` 与 `int` / `size_type` 的区别。**
+**类型别名、边界测试与简洁的索引写法。**
 
 课程目标：
 
-- 理解 `const` 的只读保证；
-- 理解引用为什么可以避免复制；
-- 理解 `vector::size()` 返回的类型；
-- 消除当前练习中的 signed/unsigned comparison 警告。
+- 理解 `std::size_t` 与 `vector::size_type` 的关系；
+- 学会用类型别名减少重复书写；
+- 为无解、空输入和重复输入补充测试；
+- 根据掌握程度进入范围遍历与迭代器重构。
